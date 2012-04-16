@@ -77,7 +77,11 @@ class Settings < ActiveRecord::Base
       if (var = target(var_name)).present?
         var.value
       else
-        ENV[var_name.to_s.upcase] || defaults[var_name.to_s]
+        if defaults.has_key? var_name.to_s
+          defaults[var_name.to_s]
+        else
+          ENV[var_name.to_s.upcase]
+        end
       end
     end
   end
