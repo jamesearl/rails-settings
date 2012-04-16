@@ -10,6 +10,8 @@ Example:
 
 Note the upcase.
 
+If the Settings table doesn't exist, this will warn and fallback to ENV vars.
+
 
 # Settings Gem/Plugin for Rails
 
