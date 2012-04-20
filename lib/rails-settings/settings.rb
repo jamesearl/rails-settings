@@ -38,10 +38,8 @@ class Settings < ActiveRecord::Base
       else
 
         #default behavior
-        if self.connection.tables.include?(self.table_name)
+        if ActiveRecord::Base.connected? and self.connection.tables.include?(self.table_name)
           self[method_name]
-
-        
         else #ENV is table not created
           warn "#{self.table_name} table does not exist, fallback to ENV[#{method_name.upcase}]"
           ENV[method_name.upcase]
