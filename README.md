@@ -1,3 +1,18 @@
+# Changes from upstream
+
+Will attempt to use a corresponding ENV value if a setting key is not found in the database or defaults.
+
+Example:
+    If you look for Setting.foo, the gem well try
+    Settings.all["foo"]
+    defaults["foo"]
+    ENV["FOO"]
+
+Note the upcase.
+
+If the Settings table doesn't exist, this will warn and fallback to ENV vars.
+
+
 # Settings Gem/Plugin for Rails
 
 Settings is a gem/plugin that makes managing a table of key/value pairs easy. Think of it like a Hash stored in you database, that uses simple ActiveRecord like methods for manipulation. Keep track of any setting that you don't want to hard code into your rails app. You can store any kind of object: Strings, numbers, arrays, or any object which can be noted as YAML.

@@ -8,8 +8,8 @@ Gem::Specification.new do |s|
   s.authors     = ['James Cunningham']
   s.email       = ['james@einherj.ar.com']
   s.homepage    = 'https://github.com/jamesearl/rails-settings'
-  s.summary     = %q{Settings management for ActiveRecord objects}
-  s.description = %q{Ruby Gem that makes managing a table of key/value pairs easy. Think of it like a Hash stored in you database, that uses simple ActiveRecord like methods for manipulation.}
+  s.summary     = %q{Settings management for ActiveRecord objects with ENV back.}
+  s.description = %q{Ruby Gem that makes managing a table of key/value pairs easy. Think of it like a Hash stored in you database, that uses simple ActiveRecord-like methods for manipulation. ENV-backed for Heroku ease.}
 
   s.rubyforge_project = 'jamesearl-rails-settings'
 

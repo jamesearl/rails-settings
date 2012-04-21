@@ -36,8 +36,14 @@ class Settings < ActiveRecord::Base
     
       #retrieve a value
       else
-        self[method_name]
-      
+
+        #default behavior
+        if ActiveRecord::Base.connected? and self.connection.tables.include?(self.table_name)
+          self[method_name]
+        else #ENV is table not created
+          warn "#{self.table_name} table does not exist, fallback to ENV[#{method_name.upcase}]"
+          ENV[method_name.upcase]
+        end
       end
     end
   end
